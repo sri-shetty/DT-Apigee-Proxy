@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="true" continueOnError="true" enabled="true" name="NewRelicAPI">
+    <DisplayName>NewRelicAPI</DisplayName>
+    <Properties/>
+    <Request clearPayload="true">
+        <Set>
+            <Headers>
+                <Header name="Api-Key">Your Newrelic Insights Insert API Key</Header>
+                <Header name="Data-Format">newrelic</Header>
+                <Header name="Data-Format-Versiont">1</Header>
+            </Headers>
+            <Verb>POST</Verb>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+                [
+                   {
+                     "common": {
+                       "attributes": {
+                         "service.name": "Apigee Proxy",
+                         "host": "srshetty-eval-test.apigee.net",
+                         "selfSampled": @dt.selfSampled#
+                       }
+                     },
+                     "spans": [
+                        {
+                         "trace.id": "@dt.traceID#",
+                         "id": "@dt.apigeeSpanID#",
+                         "attributes": {
+                           "duration.ms": @dt.apigeeDuration#,
+                           "name": "@apiproxy.name#",
+                           "parent.id": "@dt.incomingParentID#"
+                         },
+                         "timestamp": "@dt.apigeeStartTime#"
+                       },
+                       {
+                         "trace.id": "@dt.traceID#",
+                         "id": "@dt.targetSpanID#",
+                         "attributes": {
+                           "duration.ms": @dt.targetDuration#,
+                           "name": "/TargetEndpoint",
+                           "parent.id": "@dt.apigeeSpanID#",
+                           "response.code": @message.status.code#
+                         },
+                         "timestamp": "@dt.targetStart#"
+                       }
+                       @dt.internalSpans#
+                     ]
+                   }
+                 ]
+            </Payload>
+        </Set>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://trace-api.newrelic.com/trace/v1</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

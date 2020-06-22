@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="NRTracePrepare" version="SHA-512:0af19c1ec02146d0ae22ed8d66b03fda8786c7a55015d95165496bbdf0fac4e42eae74507aa9618f5a8b5325d78f73f71a2c4286bcf789246173bcca40e77e11"/>
+        <VersionInfo resourceName="NRTraceReceiver" version="SHA-512:9c75d69767e65510b030f2af05bd716eca99886f539cb23f0ae551c3e8c552921b6b879a7e70dbef3158b0a0261a46feaff09399405c6b4d3c5974c4a132f9a0"/>
+        <VersionInfo resourceName="NewRelicAPI" version="SHA-512:baab0550634ad868e4e97e7108a8943f955974ee17b9d0c8b5fd3ce3f92a4b365be309bfccb235a2f1a8426407ff73dcfe7992e6f8bb3dd2f919be1296d0297d"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:4c37ab66e35a5e185a7fd98f120a7d7c1f8b5002e880d8801f85c82d7e0ade0ee26901371e35f476edc1727a2dfb58acd49325e550ac03450cc586a7625abf01"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://NRTracePrepare.js" version="SHA-512:e3224bd11dbbd607ba540b35e849c4e278d7778471ecb94312fb20daa0d75c2d95a9c7530cb844a7ee53a40f13f0b965f6174acd06bb7518d09c63ee92ba534f"/>
+        <VersionInfo resourceName="jsc://NRTraceReceiver.js" version="SHA-512:05662b40f27ba61a9fab2dc7fc4060fb19bbbf80a917bdcf3b1f5db6a04cc3fe64797f8993fdc8cf823ca1c829594c5d234339d16440499e92c54c0017fb9b81"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:10349f808cbad02702b0d768e7462be64d766ca2526e565efb73a9a5ad6d92a3003ffa8f891af0be0920e27674f527165dca01533096610fdc39b56352d231e5"/>
+    </TargetEndpoints>
+</Manifest>
