@@ -11,6 +11,6 @@
         <Response/>
     </PostFlow>
     <HTTPTargetConnection>
-        <URL>https://powerful-anchorage-76626.herokuapp.com</URL>
+        <URL>https://your-backend-app.com</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>

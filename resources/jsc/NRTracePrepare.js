@@ -1,3 +1,4 @@
+//Get timestamp from the apigee flow variables
  var start = context.getVariable("target.sent.start.timestamp");
  var end = context.getVariable("target.received.end.timestamp");
  var apigeeStart = context.getVariable("client.received.start.timestamp")
@@ -24,11 +25,12 @@ context.setVariable("dt.sendNRTracePayload",sendNRTracePayload);
 context.setVariable("dt.selfSampled",selfSampled);
 context.setVariable("dt.internalSpans",internalSpansString);
 
+//Set target start timestamp in tracestate header
 var w3TraceState = context.getVariable("dt.w3TraceState"); 
-print("w3 trace state in Prepare Before:"+w3TraceState);
+//print("w3 trace state in Prepare Before:"+w3TraceState);
 var targetTS = context.getVariable("dt.targetTS");
 var ns = w3TraceState.indexOf(targetTS);
 var strs = w3TraceState.substr(0, ns);
 w3TraceState = strs+start;
-print("w3 trace state in Prepare After:"+w3TraceState);
 context.setVariable("request.header.tracestate", w3TraceState);
+//print("w3 trace state in Prepare After:"+w3TraceState);
