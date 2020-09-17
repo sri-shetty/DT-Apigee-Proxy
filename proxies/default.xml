@@ -13,6 +13,7 @@
         <Request/>
         <Response>
             <Step>
+                <Condition>(dt.headersFound = true)</Condition>
                 <Name>NRTracePrepare</Name>
             </Step>
             <Step>

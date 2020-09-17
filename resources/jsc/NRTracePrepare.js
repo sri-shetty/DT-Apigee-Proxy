@@ -29,8 +29,11 @@ context.setVariable("dt.internalSpans",internalSpansString);
 var w3TraceState = context.getVariable("dt.w3TraceState"); 
 //print("w3 trace state in Prepare Before:"+w3TraceState);
 var targetTS = context.getVariable("dt.targetTS");
-var ns = w3TraceState.indexOf(targetTS);
-var strs = w3TraceState.substr(0, ns);
-w3TraceState = strs+start;
+if (targetTS !== null)
+{
+    var ns = w3TraceState.indexOf(targetTS);
+    var strs = w3TraceState.substr(0, ns);
+    w3TraceState = strs+start;
+}
 context.setVariable("request.header.tracestate", w3TraceState);
 //print("w3 trace state in Prepare After:"+w3TraceState);
