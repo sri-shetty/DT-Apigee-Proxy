@@ -29,7 +29,7 @@
                            "name": "@apiproxy.name#",
                            "parent.id": "@dt.incomingParentID#"
                          },
-                         "timestamp": "@dt.apigeeStartTime#"
+                         "timestamp": @dt.apigeeStartTime#
                        },
                        {
                          "trace.id": "@dt.traceID#",
@@ -40,7 +40,7 @@
                            "parent.id": "@dt.apigeeSpanID#",
                            "response.code": @message.status.code#
                          },
-                         "timestamp": "@dt.targetStart#"
+                         "timestamp": @dt.targetStart#
                        }
                        @dt.internalSpans#
                      ]
